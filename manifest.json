@@ -1,0 +1,28 @@
+{
+  "name": "More Hair by Makiah",
+  "short_name": "Makiah Hair",
+  "description": "Premium hair braiding in Nashville, TN — knotless braids, cornrows, goddess twists, and more.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F5F0EB",
+  "theme_color": "#3D1F2D",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["beauty", "lifestyle", "shopping"],
+  "screenshots": [],
+  "lang": "en-US"
+}

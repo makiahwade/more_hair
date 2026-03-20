@@ -3,726 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>More Hair by Makiah — Premium Hair Braiding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --lavender: #C4B5D6;
-      --gold: #F4D186;
-      --mint: #A8C9BF;
-      --coral: #F5B7A8;
-      --pink: #E8A9A0;
-      --cream: #F5EDE4;
-      --bg: #E8E4DF;
-      --black: #000000;
-
-      /* aliases used throughout */
-      --gold-light: #F4D186;
-      --deep: #000000;
-      --brown: #000000;
-      --warm-white: #E8E4DF;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Jost', sans-serif;
-      background: var(--warm-white);
-      color: var(--deep);
-      overflow-x: hidden;
-    }
-
-    /* ── NAVIGATION ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 4rem;
-      background: rgba(196, 181, 214, 0.97);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(196, 181, 214, 0.5);
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-
-    .logo-icon {
-      width: 42px;
-      height: 42px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-
-    .logo-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--deep);
-      letter-spacing: 0.04em;
-    }
-
-    .logo-text span {
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--deep);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.75;
-      transition: opacity 0.2s, color 0.2s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1px;
-      background: var(--gold);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
-      color: var(--gold);
-    }
-
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-book {
-      background: var(--gold);
-      color: var(--black) !important;
-      padding: 0.5rem 1.4rem;
-      border-radius: 2px;
-      font-weight: 500 !important;
-      opacity: 1 !important;
-      transition: background 0.2s !important;
-    }
-
-    .nav-book:hover {
-      background: var(--gold-light) !important;
-    }
-
-    .nav-book::after { display: none !important; }
-
-    /* ── HERO ── */
-    #home {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #E8A9A0 0%, #F5B7A8 50%, #F4D186 100%);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 10rem 4rem 6rem 5rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
-    }
-
-    .hero-tag::before {
-      content: '';
-      width: 32px; height: 1px;
-      background: var(--gold);
-    }
-
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 5vw, 5.5rem);
-      line-height: 1.05;
-      color: var(--deep);
-      margin-bottom: 1.8rem;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.4s forwards;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .hero-sub {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: rgba(0, 0, 0, 0.65);
-      max-width: 420px;
-      margin-bottom: 3rem;
-      font-weight: 300;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.6s forwards;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.8s forwards;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--black);
-      text-decoration: none;
-      padding: 1rem 2.5rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.25s, transform 0.2s;
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      color: var(--deep);
-      text-decoration: none;
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
-      opacity: 0.65;
-      border-bottom: 1px solid rgba(61,37,53,0.3);
-      padding-bottom: 2px;
-      transition: opacity 0.2s;
-    }
-
-    .btn-secondary:hover { opacity: 1; }
-
-    .hero-stats {
-      display: flex;
-      gap: 3rem;
-      margin-top: 4rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(244,209,134,0.5);
-      opacity: 0;
-      animation: fadeUp 0.9s 1s forwards;
-    }
-
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      color: rgba(0,0,0,0.5);
-      text-transform: uppercase;
-      margin-top: 0.3rem;
-    }
-
-    .hero-right {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-img-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        #A8C9BF 0%,
-        #C4B5D6 50%,
-        #A8C9BF 100%
-      );
-    }
-
-    .hero-pattern {
-      position: absolute;
-      inset: 0;
-      opacity: 0.12;
-      background-image: 
-        repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
-      background-size: 24px 24px;
-    }
-
-    .hero-img-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 60% 40%, rgba(168,201,191,0.3) 0%, transparent 70%);
-    }
-
-    .hero-portrait {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      height: 90%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
-
-    .portrait-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: rgba(0,0,0,0.4);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .portrait-icon {
-      width: 80px; height: 80px;
-      border: 1px solid rgba(0,0,0,0.3);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-    }
-
-    .hero-accent {
-      position: absolute;
-      top: 50%; right: -60px;
-      transform: translateY(-50%);
-      width: 300px; height: 300px;
-      border: 1px solid rgba(0,0,0,0.15);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero-accent::before {
-      content: '';
-      position: absolute;
-      inset: 30px;
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 50%;
-    }
-
-    /* ── SECTIONS ── */
-    section {
-      padding: 7rem 5rem;
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
-      line-height: 1.1;
-      color: var(--deep);
-      margin-bottom: 1.5rem;
-    }
-
-    /* ── SERVICES ── */
-    #services {
-      background: var(--cream);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 4rem;
-      background: rgba(244,209,134,0.25);
-    }
-
-    .service-card {
-      background: var(--warm-white);
-      padding: 3rem 2.5rem;
-      transition: background 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 2px;
-      background: var(--gold);
-      transition: width 0.4s ease;
-    }
-
-    .service-card:hover { background: var(--lavender); }
-    .service-card:hover .service-name { color: var(--black); }
-    .service-card:hover .service-desc { color: rgba(0,0,0,0.6); }
-    .service-card:hover .service-price { color: var(--black); }
-    .service-card:hover::before { width: 100%; }
-
-    .service-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-
-    .service-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--deep);
-      margin-bottom: 0.8rem;
-      transition: color 0.3s;
-    }
-
-    .service-desc {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: rgba(0,0,0,0.6);
-      margin-bottom: 1.5rem;
-      transition: color 0.3s;
-      font-weight: 300;
-    }
-
-    .service-price {
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      color: var(--brown);
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    /* ── GALLERY ── */
-    #gallery {
-      background: linear-gradient(135deg, #C4B5D6 0%, #A8C9BF 100%);
-      color: var(--black);
-    }
-
-    #gallery .section-title { color: var(--black); }
-
-    .gallery-intro {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 3rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: 280px 280px;
-      gap: 4px;
-    }
-
-    .gallery-item {
-      background: var(--cream);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .gallery-item:first-child {
-      grid-row: 1 / 3;
-    }
-
-    .gallery-item-inner {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #E8A9A0, #F5B7A8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      opacity: 0.6;
-      transition: opacity 0.3s, transform 0.5s;
-    }
-
-    .gallery-item:nth-child(2) .gallery-item-inner { background: linear-gradient(135deg, #A8C9BF, #C4B5D6); }
-    .gallery-item:nth-child(3) .gallery-item-inner { background: linear-gradient(135deg, #F4D186, #F5B7A8); }
-    .gallery-item:nth-child(4) .gallery-item-inner { background: linear-gradient(135deg, #C4B5D6, #E8A9A0); }
-    .gallery-item:nth-child(5) .gallery-item-inner { background: linear-gradient(135deg, #A8C9BF, #F4D186); }
-
-    .gallery-item:hover .gallery-item-inner {
-      opacity: 0.85;
-      transform: scale(1.05);
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
-      opacity: 0;
-      transition: opacity 0.3s;
-      display: flex;
-      align-items: flex-end;
-      padding: 1.5rem;
-    }
-
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-
-    .gallery-tag {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--cream);
-    }
-
-    /* ── BOOKING ── */
-    #booking {
-      background: var(--cream);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-
-    .booking-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .form-group label {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--brown);
-      font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      padding: 0.9rem 1.2rem;
-      border: 1px solid rgba(0,0,0,0.15);
-      background: var(--warm-white);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.9rem;
-      color: var(--deep);
-      outline: none;
-      transition: border-color 0.2s;
-      border-radius: 2px;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--gold);
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .btn-form {
-      background: var(--gold);
-      color: var(--black);
-      border: none;
-      padding: 1.1rem 2rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.82rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s;
-      border-radius: 2px;
-      margin-top: 0.5rem;
-    }
-
-    .btn-form:hover { background: var(--mint); }
-
-    .booking-info h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      color: var(--deep);
-      margin-bottom: 1.5rem;
-    }
-
-    .booking-details {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .detail-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.2rem;
-      background: var(--warm-white);
-      border-left: 2px solid var(--gold);
-    }
-
-    .detail-icon { font-size: 1.2rem; }
-
-    .detail-text strong {
-      display: block;
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--deep);
-      margin-bottom: 0.2rem;
-    }
-
-    .detail-text span {
-      font-size: 0.85rem;
-      color: rgba(0,0,0,0.6);
-      font-weight: 300;
-    }
-
-    /* ── CONTACT ── */
-    #contact {
-      background: var(--lavender);
-      color: var(--black);
-      text-align: center;
-    }
-
-    #contact .section-title { color: var(--black); }
-
-    .contact-sub {
-      color: rgba(0,0,0,0.6);
-      font-size: 1rem;
-      font-weight: 300;
-      max-width: 480px;
-      margin: 0 auto 3rem;
-      line-height: 1.8;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: var(--black);
-      text-decoration: none;
-      font-size: 0.88rem;
-      letter-spacing: 0.08em;
-      border: 1px solid rgba(0,0,0,0.25);
-      padding: 0.9rem 2rem;
-      transition: background 0.2s, border-color 0.2s;
-      border-radius: 2px;
-    }
-
-    .contact-link:hover {
-      background: rgba(244,209,134,0.4);
-      border-color: var(--black);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--lavender);
-      color: rgba(0,0,0,0.5);
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.05em;
-      border-top: 1px solid rgba(0,0,0,0.1);
-    }
-
-    footer a { color: var(--black); text-decoration: none; font-weight: 500; }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
-      #home { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
-      .hero-left { padding: 8rem 1.5rem 4rem; }
-      section { padding: 5rem 1.5rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      #booking { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; }
-      .gallery-item:first-child { grid-row: auto; }
-    }
-  </style>
+  <meta name="description" content="More Hair by Makiah — Premium hair braiding in Nashville, TN. Knotless braids, cornrows, goddess twists, and kids styles." />
+  <meta name="theme-color" content="#3D1F2D" />
+  <title>More Hair by Makiah &mdash; Premium Hair Braiding Nashville</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ═══ NAVIGATION ═══ -->
+  <!-- ════════ NAV ════════ -->
   <nav>
-    <a href="#home" class="logo">
-      <div class="logo-icon">👑</div>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">&#128081;</div>
       <span class="logo-text">More Hair <span>by Makiah</span></span>
     </a>
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#booking" class="nav-book">Book Now</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="booking.html" class="nav-book">Book Now</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- ═══ HERO ═══ -->
-  <section id="home">
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html" class="drawer-book">Book Now</a>
+  </div>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
     <div class="hero-left">
-      <div class="hero-tag">Premium Hair Braiding · by Makiah</div>
+      <div class="hero-tag">Premium Hair Braiding &middot; Nashville TN</div>
       <h1>Your Crown,<br /><em>Beautifully</em><br />Braided.</h1>
-      <p class="hero-sub">Protective styles crafted with care — knotless braids, cornrows, goddess twists, and more. Because your hair deserves more than average.</p>
+      <p class="hero-sub">
+        Protective styles crafted with care &mdash; knotless braids, cornrows,
+        goddess twists, and more. Because your hair deserves more than average.
+      </p>
       <div class="hero-cta-group">
-        <a href="#booking" class="btn-primary">Book Your Appointment</a>
-        <a href="#services" class="btn-secondary">View Services</a>
+        <a href="booking.html" class="btn-primary">Book Your Appointment</a>
+        <a href="services.html" class="btn-secondary">View Services</a>
       </div>
       <div class="hero-stats">
         <div>
@@ -734,203 +66,624 @@
           <div class="stat-label">Experience</div>
         </div>
         <div>
-          <div class="stat-num">5★</div>
+          <div class="stat-num">5&#9733;</div>
           <div class="stat-label">Avg Rating</div>
         </div>
       </div>
     </div>
+
+    <!--
+      HERO IMAGE
+      Make sure hero-picture.png is in the same folder as index.html.
+      If your file still has a space in the name use: src="hero%20picture.png"
+    -->
     <div class="hero-right">
-      <div class="hero-img-bg"></div>
-      <div class="hero-pattern"></div>
-      <div class="hero-img-overlay"></div>
-      <div class="hero-portrait">
-        <div class="portrait-placeholder">
-          <div class="portrait-icon">💆🏾‍♀️</div>
-          <span>Your Photo Here</span>
-        </div>
-      </div>
-      <div class="hero-accent"></div>
+      <img
+        src="hero-picture.png"
+        alt="Young girl with stitch braids, heart design, and colorful strands — side profile"
+        class="hero-photo"
+      />
+      <div class="hero-photo-fade"></div>
+      <div class="hero-photo-vignette"></div>
     </div>
   </section>
 
-  <!-- ═══ SERVICES ═══ -->
-  <section id="services">
-    <div class="section-label">What We Offer</div>
-    <h2 class="section-title">Styles That Speak for You</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-num">01</div>
-        <div class="service-name">Knotless Braids</div>
-        <p class="service-desc">Feed-in technique for a natural look with less tension. Available in box braid or bohemian style. Includes scalp care prep.</p>
-        <div class="service-price">Starting at $150 · 4–6 hrs</div>
+  <!-- ════════ SERVICES TEASER ════════ -->
+  <div class="teaser-strip">
+    <div class="teaser-text">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Styles That<br />Speak for You</h2>
+      <p>
+        From knotless braids to kids' cornrows, every service is done with
+        patience, precision, and premium hair included in the price.
+      </p>
+      <a href="services.html" class="btn-primary">See All Services</a>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">6</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Style Types</div>
       </div>
-      <div class="service-card">
-        <div class="service-num">02</div>
-        <div class="service-name">Cornrows</div>
-        <p class="service-desc">Classic straight-back or custom geometric patterns. Perfect for a clean, sleek protective style that lasts.</p>
-        <div class="service-price">Starting at $65 · 1–2 hrs</div>
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">$45</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Starting Price</div>
       </div>
-      <div class="service-card">
-        <div class="service-num">03</div>
-        <div class="service-name">Goddess Braids</div>
-        <p class="service-desc">Large, flowing braids with a soft, natural finish. Ideal for special occasions or everyday queen energy.</p>
-        <div class="service-price">Starting at $120 · 3–4 hrs</div>
-      </div>
-      <div class="service-card">
-        <div class="service-num">04</div>
-        <div class="service-name">Senegalese Twists</div>
-        <p class="service-desc">Rope twists installed with silky or kinky extensions for a lightweight protective style with lasting results.</p>
-        <div class="service-price">Starting at $180 · 5–7 hrs</div>
-      </div>
-      <div class="service-card">
-        <div class="service-num">05</div>
-        <div class="service-name">Fulani Braids</div>
-        <p class="service-desc">Cornrow center braid with box braids on the sides, adorned with beads and accessories. Culturally rich & stunning.</p>
-        <div class="service-price">Starting at $130 · 3–5 hrs</div>
-      </div>
-      <div class="service-card">
-        <div class="service-num">06</div>
-        <div class="service-name">Kids' Styles</div>
-        <p class="service-desc">Gentle, patient braiding sessions for little ones. Cornrows, ponytails, and box braids for ages 4 and up.</p>
-        <div class="service-price">Starting at $45 · 1–2 hrs</div>
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">&#10003;</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Hair Included</div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ═══ GALLERY ═══ -->
-  <section id="gallery">
-    <div class="gallery-intro">
-      <div>
-        <div class="section-label">Our Work</div>
-        <h2 class="section-title">Every Style,<br />A Work of Art</h2>
-      </div>
-      <a href="#booking" class="btn-primary">Book Your Style</a>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <div class="gallery-item-inner">🌿</div>
-        <div class="gallery-overlay"><span class="gallery-tag">Knotless Box Braids</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-item-inner">✨</div>
-        <div class="gallery-overlay"><span class="gallery-tag">Goddess Braids</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-item-inner">👑</div>
-        <div class="gallery-overlay"><span class="gallery-tag">Fulani Style</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-item-inner">🌸</div>
-        <div class="gallery-overlay"><span class="gallery-tag">Cornrow Design</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-item-inner">💫</div>
-        <div class="gallery-overlay"><span class="gallery-tag">Senegalese Twists</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ BOOKING ═══ -->
-  <section id="booking">
+  <!-- ════════ GALLERY TEASER ════════ -->
+  <div style="background:linear-gradient(135deg,#3D1F2D 0%,#5C3347 100%);padding:4rem 5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
     <div>
-      <div class="section-label">Reserve Your Seat</div>
-      <h2 class="section-title">Book Your<br />Appointment</h2>
-      <div class="booking-info">
-        <div class="booking-details">
-          <div class="detail-item">
-            <div class="detail-icon">📍</div>
-            <div class="detail-text">
-              <strong>Location</strong>
-              <span>Nashville, TN · Home studio & mobile available</span>
-            </div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-icon">🕐</div>
-            <div class="detail-text">
-              <strong>Hours</strong>
-              <span>Tue–Sat: 8am – 7pm · Sun by request</span>
-            </div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-icon">📩</div>
-            <div class="detail-text">
-              <strong>Deposit Required</strong>
-              <span>$25 deposit to hold your appointment</span>
-            </div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-icon">✂️</div>
-            <div class="detail-text">
-              <strong>Hair Provided</strong>
-              <span>All braiding hair is included in quoted price</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="section-label" style="color:var(--gold-light);">Our Work</div>
+      <h2 class="section-title" style="color:#FFF8F0;">Every Style,<br />A Work of Art</h2>
+      <p style="color:rgba(255,240,220,0.65);font-size:0.95rem;font-weight:300;line-height:1.8;max-width:400px;margin-bottom:1.5rem;">
+        Browse our portfolio of braids and protective styles crafted right here in Nashville.
+      </p>
+      <a href="gallery.html" class="btn-primary">View Full Gallery</a>
     </div>
-
-    <form class="booking-form" onsubmit="return false;">
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" placeholder="Maya" />
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="Johnson" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" placeholder="(615) 555-0123" />
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="maya@email.com" />
-      </div>
-      <div class="form-group">
-        <label>Style Requested</label>
-        <select>
-          <option value="">— Select a style —</option>
-          <option>Knotless Braids</option>
-          <option>Cornrows</option>
-          <option>Goddess Braids</option>
-          <option>Senegalese Twists</option>
-          <option>Fulani Braids</option>
-          <option>Kids' Style</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Preferred Date</label>
-          <input type="date" />
-        </div>
-        <div class="form-group">
-          <label>Preferred Time</label>
-          <input type="time" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Additional Notes</label>
-        <textarea rows="3" placeholder="Hair length, color preferences, references..."></textarea>
-      </div>
-      <button class="btn-form" type="submit">Request Appointment →</button>
-    </form>
-  </section>
-
-  <!-- ═══ CONTACT ═══ -->
-  <section id="contact">
-    <div class="section-label">Get In Touch</div>
-    <h2 class="section-title">Let's Connect</h2>
-    <p class="contact-sub">Questions about a style? Ready to book? Reach out through any of the channels below and we'll get back to you within 24 hours.</p>
-    <div class="contact-links">
-      <a href="tel:+16155550123" class="contact-link">📞 (615) 555-0123</a>
-      <a href="/cdn-cgi/l/email-protection#19717c7575765974766b7c7178706b7b60747872707871377a7674" class="contact-link">✉️ <span class="__cf_email__" data-cfemail="6a020f0606052a0705180f020b03180813070b01030b0244090507">[email&#160;protected]</span></a>
-      <a href="#" class="contact-link">📸 @MoreHairByMakiah</a>
-      <a href="#" class="contact-link">💬 DM on Instagram</a>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;width:280px;height:200px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+      <div style="background:linear-gradient(135deg,#7B5EA7,#4A3060);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#127807;</div>
+      <div style="background:linear-gradient(135deg,#3A8A7A,#5C3347);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#10024;</div>
+      <div style="background:linear-gradient(135deg,#C8930A,#C0503C);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#128081;</div>
+      <div style="background:linear-gradient(135deg,#5C3347,#7B5EA7);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#127800;</div>
     </div>
-  </section>
+  </div>
 
-  <!-- ═══ FOOTER ═══ -->
+  <!-- ════════ FOOTER ════════ -->
   <footer>
-    <p>© 2025
+    <div class="footer-brand">More Hair by Makiah</div>
+    <p>&copy; 2025 More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
+      <a href="booking.html">Book Now</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ════════ SCRIPTS ════════ -->
+  <script>
+    /* PWA: register service worker */
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    }
+
+    /* Mobile hamburger menu */
+    var hamburger = document.getElementById('hamburger');
+    var drawer    = document.getElementById('nav-drawer');
+
+    hamburger.addEventListener('click', function () {
+      var open = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    /* Close drawer when a link is tapped */
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        drawer.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="More Hair by Makiah — Premium hair braiding in Nashville, TN. Knotless braids, cornrows, goddess twists, and kids styles." />
+  <meta name="theme-color" content="#3D1F2D" />
+  <title>More Hair by Makiah &mdash; Premium Hair Braiding Nashville</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ════════ NAV ════════ -->
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">&#128081;</div>
+      <span class="logo-text">More Hair <span>by Makiah</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="booking.html" class="nav-book">Book Now</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html" class="drawer-book">Book Now</a>
+  </div>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Premium Hair Braiding &middot; Nashville TN</div>
+      <h1>Your Crown,<br /><em>Beautifully</em><br />Braided.</h1>
+      <p class="hero-sub">
+        Protective styles crafted with care &mdash; knotless braids, cornrows,
+        goddess twists, and more. Because your hair deserves more than average.
+      </p>
+      <div class="hero-cta-group">
+        <a href="booking.html" class="btn-primary">Book Your Appointment</a>
+        <a href="services.html" class="btn-secondary">View Services</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div>
+          <div class="stat-num">8 yrs</div>
+          <div class="stat-label">Experience</div>
+        </div>
+        <div>
+          <div class="stat-num">5&#9733;</div>
+          <div class="stat-label">Avg Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      HERO IMAGE
+      Make sure hero-picture.png is in the same folder as index.html.
+      If your file still has a space in the name use: src="hero%20picture.png"
+    -->
+    <div class="hero-right">
+      <img
+        src="hero-picture.png"
+        alt="Young girl with stitch braids, heart design, and colorful strands — side profile"
+        class="hero-photo"
+      />
+      <div class="hero-photo-fade"></div>
+      <div class="hero-photo-vignette"></div>
+    </div>
+  </section>
+
+  <!-- ════════ SERVICES TEASER ════════ -->
+  <div class="teaser-strip">
+    <div class="teaser-text">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Styles That<br />Speak for You</h2>
+      <p>
+        From knotless braids to kids' cornrows, every service is done with
+        patience, precision, and premium hair included in the price.
+      </p>
+      <a href="services.html" class="btn-primary">See All Services</a>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">6</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Style Types</div>
+      </div>
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">$45</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Starting Price</div>
+      </div>
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">&#10003;</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Hair Included</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ GALLERY TEASER ════════ -->
+  <div style="background:linear-gradient(135deg,#3D1F2D 0%,#5C3347 100%);padding:4rem 5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+    <div>
+      <div class="section-label" style="color:var(--gold-light);">Our Work</div>
+      <h2 class="section-title" style="color:#FFF8F0;">Every Style,<br />A Work of Art</h2>
+      <p style="color:rgba(255,240,220,0.65);font-size:0.95rem;font-weight:300;line-height:1.8;max-width:400px;margin-bottom:1.5rem;">
+        Browse our portfolio of braids and protective styles crafted right here in Nashville.
+      </p>
+      <a href="gallery.html" class="btn-primary">View Full Gallery</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;width:280px;height:200px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+      <div style="background:linear-gradient(135deg,#7B5EA7,#4A3060);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#127807;</div>
+      <div style="background:linear-gradient(135deg,#3A8A7A,#5C3347);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#10024;</div>
+      <div style="background:linear-gradient(135deg,#C8930A,#C0503C);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#128081;</div>
+      <div style="background:linear-gradient(135deg,#5C3347,#7B5EA7);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#127800;</div>
+    </div>
+  </div>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer>
+    <div class="footer-brand">More Hair by Makiah</div>
+    <p>&copy; 2025 More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
+      <a href="booking.html">Book Now</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ════════ SCRIPTS ════════ -->
+  <script>
+    /* PWA: register service worker */
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    }
+
+    /* Mobile hamburger menu */
+    var hamburger = document.getElementById('hamburger');
+    var drawer    = document.getElementById('nav-drawer');
+
+    hamburger.addEventListener('click', function () {
+      var open = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    /* Close drawer when a link is tapped */
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        drawer.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="More Hair by Makiah — Premium hair braiding in Nashville, TN. Knotless braids, cornrows, goddess twists, and kids styles." />
+  <meta name="theme-color" content="#3D1F2D" />
+  <title>More Hair by Makiah &mdash; Premium Hair Braiding Nashville</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ════════ NAV ════════ -->
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">&#128081;</div>
+      <span class="logo-text">More Hair <span>by Makiah</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="booking.html" class="nav-book">Book Now</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html" class="drawer-book">Book Now</a>
+  </div>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Premium Hair Braiding &middot; Nashville TN</div>
+      <h1>Your Crown,<br /><em>Beautifully</em><br />Braided.</h1>
+      <p class="hero-sub">
+        Protective styles crafted with care &mdash; knotless braids, cornrows,
+        goddess twists, and more. Because your hair deserves more than average.
+      </p>
+      <div class="hero-cta-group">
+        <a href="booking.html" class="btn-primary">Book Your Appointment</a>
+        <a href="services.html" class="btn-secondary">View Services</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div>
+          <div class="stat-num">8 yrs</div>
+          <div class="stat-label">Experience</div>
+        </div>
+        <div>
+          <div class="stat-num">5&#9733;</div>
+          <div class="stat-label">Avg Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      HERO IMAGE
+      Make sure hero-picture.png is in the same folder as index.html.
+      If your file still has a space in the name use: src="hero%20picture.png"
+    -->
+    <div class="hero-right">
+      <img
+        src="hero-picture.png"
+        alt="Young girl with stitch braids, heart design, and colorful strands — side profile"
+        class="hero-photo"
+      />
+      <div class="hero-photo-fade"></div>
+      <div class="hero-photo-vignette"></div>
+    </div>
+  </section>
+
+  <!-- ════════ SERVICES TEASER ════════ -->
+  <div class="teaser-strip">
+    <div class="teaser-text">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Styles That<br />Speak for You</h2>
+      <p>
+        From knotless braids to kids' cornrows, every service is done with
+        patience, precision, and premium hair included in the price.
+      </p>
+      <a href="services.html" class="btn-primary">See All Services</a>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">6</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Style Types</div>
+      </div>
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">$45</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Starting Price</div>
+      </div>
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">&#10003;</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Hair Included</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ GALLERY TEASER ════════ -->
+  <div style="background:linear-gradient(135deg,#3D1F2D 0%,#5C3347 100%);padding:4rem 5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+    <div>
+      <div class="section-label" style="color:var(--gold-light);">Our Work</div>
+      <h2 class="section-title" style="color:#FFF8F0;">Every Style,<br />A Work of Art</h2>
+      <p style="color:rgba(255,240,220,0.65);font-size:0.95rem;font-weight:300;line-height:1.8;max-width:400px;margin-bottom:1.5rem;">
+        Browse our portfolio of braids and protective styles crafted right here in Nashville.
+      </p>
+      <a href="gallery.html" class="btn-primary">View Full Gallery</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;width:280px;height:200px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+      <div style="background:linear-gradient(135deg,#7B5EA7,#4A3060);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#127807;</div>
+      <div style="background:linear-gradient(135deg,#3A8A7A,#5C3347);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#10024;</div>
+      <div style="background:linear-gradient(135deg,#C8930A,#C0503C);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#128081;</div>
+      <div style="background:linear-gradient(135deg,#5C3347,#7B5EA7);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#127800;</div>
+    </div>
+  </div>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer>
+    <div class="footer-brand">More Hair by Makiah</div>
+    <p>&copy; 2025 More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
+      <a href="booking.html">Book Now</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ════════ SCRIPTS ════════ -->
+  <script>
+    /* PWA: register service worker */
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    }
+
+    /* Mobile hamburger menu */
+    var hamburger = document.getElementById('hamburger');
+    var drawer    = document.getElementById('nav-drawer');
+
+    hamburger.addEventListener('click', function () {
+      var open = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    /* Close drawer when a link is tapped */
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        drawer.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="More Hair by Makiah — Premium hair braiding in Nashville, TN. Knotless braids, cornrows, goddess twists, and kids styles." />
+  <meta name="theme-color" content="#3D1F2D" />
+  <title>More Hair by Makiah &mdash; Premium Hair Braiding Nashville</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ════════ NAV ════════ -->
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">&#128081;</div>
+      <span class="logo-text">More Hair <span>by Makiah</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="booking.html" class="nav-book">Book Now</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html" class="drawer-book">Book Now</a>
+  </div>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Premium Hair Braiding &middot; Nashville TN</div>
+      <h1>Your Crown,<br /><em>Beautifully</em><br />Braided.</h1>
+      <p class="hero-sub">
+        Protective styles crafted with care &mdash; knotless braids, cornrows,
+        goddess twists, and more. Because your hair deserves more than average.
+      </p>
+      <div class="hero-cta-group">
+        <a href="booking.html" class="btn-primary">Book Your Appointment</a>
+        <a href="services.html" class="btn-secondary">View Services</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div>
+          <div class="stat-num">8 yrs</div>
+          <div class="stat-label">Experience</div>
+        </div>
+        <div>
+          <div class="stat-num">5&#9733;</div>
+          <div class="stat-label">Avg Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      HERO IMAGE
+      Make sure hero-picture.png is in the same folder as index.html.
+      If your file still has a space in the name use: src="hero%20picture.png"
+    -->
+    <div class="hero-right">
+      <img
+        src="hero-picture.png"
+        alt="Young girl with stitch braids, heart design, and colorful strands — side profile"
+        class="hero-photo"
+      />
+      <div class="hero-photo-fade"></div>
+      <div class="hero-photo-vignette"></div>
+    </div>
+  </section>
+
+  <!-- ════════ SERVICES TEASER ════════ -->
+  <div class="teaser-strip">
+    <div class="teaser-text">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Styles That<br />Speak for You</h2>
+      <p>
+        From knotless braids to kids' cornrows, every service is done with
+        patience, precision, and premium hair included in the price.
+      </p>
+      <a href="services.html" class="btn-primary">See All Services</a>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">6</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Style Types</div>
+      </div>
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">$45</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Starting Price</div>
+      </div>
+      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">&#10003;</div>
+        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Hair Included</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ GALLERY TEASER ════════ -->
+  <div style="background:linear-gradient(135deg,#3D1F2D 0%,#5C3347 100%);padding:4rem 5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+    <div>
+      <div class="section-label" style="color:var(--gold-light);">Our Work</div>
+      <h2 class="section-title" style="color:#FFF8F0;">Every Style,<br />A Work of Art</h2>
+      <p style="color:rgba(255,240,220,0.65);font-size:0.95rem;font-weight:300;line-height:1.8;max-width:400px;margin-bottom:1.5rem;">
+        Browse our portfolio of braids and protective styles crafted right here in Nashville.
+      </p>
+      <a href="gallery.html" class="btn-primary">View Full Gallery</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;width:280px;height:200px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+      <div style="background:linear-gradient(135deg,#7B5EA7,#4A3060);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#127807;</div>
+      <div style="background:linear-gradient(135deg,#3A8A7A,#5C3347);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#10024;</div>
+      <div style="background:linear-gradient(135deg,#C8930A,#C0503C);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#128081;</div>
+      <div style="background:linear-gradient(135deg,#5C3347,#7B5EA7);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#127800;</div>
+    </div>
+  </div>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer>
+    <div class="footer-brand">More Hair by Makiah</div>
+    <p>&copy; 2025 More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
+      <a href="booking.html">Book Now</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ════════ SCRIPTS ════════ -->
+  <script>
+    /* PWA: register service worker */
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    }
+
+    /* Mobile hamburger menu */
+    var hamburger = document.getElementById('hamburger');
+    var drawer    = document.getElementById('nav-drawer');
+
+    hamburger.addEventListener('click', function () {
+      var open = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    /* Close drawer when a link is tapped */
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        drawer.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>

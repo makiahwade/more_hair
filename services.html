@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hair braiding services by Makiah in Nashville, TN — knotless braids, cornrows, goddess braids, Senegalese twists, Fulani braids, and kids styles." />
+  <meta name="theme-color" content="#3D1F2D" />
+  <title>Services &mdash; More Hair by Makiah</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ════════ NAV ════════ -->
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">&#128081;</div>
+      <span class="logo-text">More Hair <span>by Makiah</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="booking.html" class="nav-book">Book Now</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-drawer" id="nav-drawer" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html" class="drawer-book">Book Now</a>
+  </div>
+
+  <!-- ════════ PAGE BANNER ════════ -->
+  <div class="page-content">
+    <div class="page-banner">
+      <div class="section-label">What We Offer</div>
+      <h1>Styles That <em>Speak</em> for You</h1>
+      <p>Every service includes braiding hair in the price. No hidden fees &mdash; just beautiful, lasting styles.</p>
+    </div>
+
+    <!-- ════════ SERVICES GRID ════════ -->
+    <section class="services-section">
+      <div class="section-label">Full Menu</div>
+      <h2 class="section-title">Choose Your Style</h2>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-num">01</div>
+          <div class="service-name">Knotless Braids</div>
+          <p class="service-desc">Feed-in technique for a natural look with less tension on your scalp. Available in box braid or bohemian style. Includes scalp care prep.</p>
+          <div class="service-price">Starting at $150 &middot; 4&ndash;6 hrs</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <div class="service-name">Cornrows</div>
+          <p class="service-desc">Classic straight-back or custom geometric patterns. Perfect for a clean, sleek protective style that lasts weeks.</p>
+          <div class="service-price">Starting at $65 &middot; 1&ndash;2 hrs</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <div class="service-name">Goddess Braids</div>
+          <p class="service-desc">Large, flowing braids with a soft, natural finish. Ideal for special occasions or everyday queen energy.</p>
+          <div class="service-price">Starting at $120 &middot; 3&ndash;4 hrs</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-num">04</div>
+          <div class="service-name">Senegalese Twists</div>
+          <p class="service-desc">Rope twists installed with silky or kinky extensions for a lightweight protective style with lasting results.</p>
+          <div class="service-price">Starting at $180 &middot; 5&ndash;7 hrs</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-num">05</div>
+          <div class="service-name">Fulani Braids</div>
+          <p class="service-desc">Cornrow center braid with box braids on the sides, adorned with beads and accessories. Culturally rich and stunning.</p>
+          <div class="service-price">Starting at $130 &middot; 3&ndash;5 hrs</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-num">06</div>
+          <div class="service-name">Kids' Styles</div>
+          <p class="service-desc">Gentle, patient braiding sessions for little ones. Cornrows, ponytails, and box braids for ages 4 and up.</p>
+          <div class="service-price">Starting at $45 &middot; 1&ndash;2 hrs</div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center;margin-top:3rem;">
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.2rem;font-weight:300;">
+          Prices vary by hair length and thickness. Contact us for a custom quote.
+        </p>
+        <a href="booking.html" class="btn-primary">Book Your Appointment</a>
+      </div>
+    </section>
+
+  </div><!-- end .page-content -->
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer>
+    <div class="footer-brand">More Hair by Makiah</div>
+    <p>&copy; 2025 More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
+      <a href="booking.html">Book Now</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
+    var hamburger = document.getElementById('hamburger');
+    var drawer    = document.getElementById('nav-drawer');
+    hamburger.addEventListener('click', function () {
+      var open = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        drawer.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>
