@@ -43,19 +43,23 @@
   <div class="page-content">
     <div class="page-banner">
       <div class="section-label">Get In Touch</div>
-      <h1>Let's <em>Connect</em></h1>
+      <h1>Let&rsquo;s <em>Connect</em></h1>
       <p>Questions about a style? Not ready to book yet? Reach out and we will get back to you within 24 hours.</p>
     </div>
 
     <!--
-      CONTACT SECTION
-      Replace YOUR_FORM_ID with your Formspree form ID.
-      Steps:
-        1. Sign up at formspree.io (free)
-        2. Create a new form
-        3. Copy the ID from your form URL (the characters after /f/)
-        4. Replace YOUR_FORM_ID below
-      Example: action="https://formspree.io/f/abcdefgh"
+      ══════════════════════════════════════════
+      FORMSPREE SETUP — 3 easy steps:
+        1. Sign up free at https://formspree.io
+        2. Create a new form — copy the form ID
+           (the characters after /f/ in your form URL)
+        3. Replace YOUR_FORM_ID below with that ID
+           e.g. action="https://formspree.io/f/abcdefgh"
+
+      PHONE & EMAIL — replace the placeholders below:
+        - Replace (615) 555-0123 with your real phone number
+        - Replace hello@morehairbymakiah.com with your real email
+      ══════════════════════════════════════════
     -->
     <section class="contact-section">
 
@@ -68,11 +72,13 @@
         </p>
         <div class="contact-info-links">
 
+          <!-- ⬇ Replace with your real phone number -->
           <a href="tel:+16155550123" class="contact-info-link">
             <span class="link-icon">&#128222;</span>
             (615) 555-0123
           </a>
 
+          <!-- ⬇ Replace with your real email address -->
           <a href="mailto:hello@morehairbymakiah.com" class="contact-info-link">
             <span class="link-icon">&#9993;</span>
             hello@morehairbymakiah.com
@@ -100,7 +106,7 @@
         </div>
       </div>
 
-      <!-- Formspree form -->
+      <!-- Formspree contact form -->
       <div class="contact-form-wrap">
         <h3>Send a Message</h3>
         <div class="form-status" id="contact-status" role="alert"></div>
@@ -155,7 +161,7 @@
   <!-- ════════ FOOTER ════════ -->
   <footer>
     <div class="footer-brand">More Hair by Makiah</div>
-    <p>&copy; 2025 More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
+    <p>&copy; <span id="copy-year"></span> More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
     <div class="footer-social">
       <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
       <a href="booking.html">Book Now</a>
@@ -165,6 +171,8 @@
 
   <script>
     if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
+
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
 
     /* Hamburger */
     var hamburger = document.getElementById('hamburger');
@@ -189,10 +197,10 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var btn          = form.querySelector('button[type="submit"]');
-        btn.disabled     = true;
-        btn.textContent  = 'Sending...';
-        status.className = 'form-status';
+        var btn         = form.querySelector('button[type="submit"]');
+        btn.disabled    = true;
+        btn.textContent = 'Sending...';
+        status.className     = 'form-status';
         status.style.display = 'none';
         status.textContent   = '';
 
@@ -220,7 +228,7 @@
         })
         .finally(function () {
           btn.disabled    = false;
-          btn.textContent = 'Send Message';
+          btn.textContent = 'Send Message \u2192';
         });
       });
     }());

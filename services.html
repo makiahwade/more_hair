@@ -90,7 +90,7 @@
 
         <div class="service-card">
           <div class="service-num">06</div>
-          <div class="service-name">Kids' Styles</div>
+          <div class="service-name">Kids&rsquo; Styles</div>
           <p class="service-desc">Gentle, patient braiding sessions for little ones. Cornrows, ponytails, and box braids for ages 4 and up.</p>
           <div class="service-price">Starting at $45 &middot; 1&ndash;2 hrs</div>
         </div>
@@ -111,7 +111,7 @@
   <!-- ════════ FOOTER ════════ -->
   <footer>
     <div class="footer-brand">More Hair by Makiah</div>
-    <p>&copy; 2025 More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
+    <p>&copy; <span id="copy-year"></span> More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
     <div class="footer-social">
       <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
       <a href="booking.html">Book Now</a>
@@ -121,6 +121,9 @@
 
   <script>
     if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
+
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+
     var hamburger = document.getElementById('hamburger');
     var drawer    = document.getElementById('nav-drawer');
     hamburger.addEventListener('click', function () {

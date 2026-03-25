@@ -75,12 +75,12 @@
     <!--
       HERO IMAGE
       Make sure hero-picture.png is in the same folder as index.html.
-      If your file still has a space in the name use: src="hero%20picture.png"
+      If your filename has a space use: src="hero%20picture.png"
     -->
     <div class="hero-right">
       <img
         src="hero-picture.png"
-        alt="Young girl with stitch braids, heart design, and colorful strands — side profile"
+        alt="Beautiful braided hair style by Makiah — Nashville TN"
         class="hero-photo"
       />
       <div class="hero-photo-fade"></div>
@@ -94,49 +94,51 @@
       <div class="section-label">What We Offer</div>
       <h2 class="section-title">Styles That<br />Speak for You</h2>
       <p>
-        From knotless braids to kids' cornrows, every service is done with
+        From knotless braids to kids&rsquo; cornrows, every service is done with
         patience, precision, and premium hair included in the price.
       </p>
       <a href="services.html" class="btn-primary">See All Services</a>
     </div>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">6</div>
-        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Style Types</div>
+
+    <div class="teaser-stats">
+      <div class="teaser-stat-card">
+        <div class="teaser-stat-num">6</div>
+        <div class="teaser-stat-label">Style Types</div>
       </div>
-      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">$45</div>
-        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Starting Price</div>
+      <div class="teaser-stat-card">
+        <div class="teaser-stat-num">$45</div>
+        <div class="teaser-stat-label">Starting Price</div>
       </div>
-      <div style="background:var(--lavender-bg);border-radius:6px;padding:1.5rem 2rem;text-align:center;min-width:130px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">&#10003;</div>
-        <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.3rem;">Hair Included</div>
+      <div class="teaser-stat-card">
+        <div class="teaser-stat-num">&#10003;</div>
+        <div class="teaser-stat-label">Hair Included</div>
       </div>
     </div>
   </div>
 
   <!-- ════════ GALLERY TEASER ════════ -->
-  <div style="background:linear-gradient(135deg,#3D1F2D 0%,#5C3347 100%);padding:4rem 5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
-    <div>
+  <div class="gallery-teaser">
+    <div class="gallery-teaser-text">
       <div class="section-label" style="color:var(--gold-light);">Our Work</div>
       <h2 class="section-title" style="color:#FFF8F0;">Every Style,<br />A Work of Art</h2>
-      <p style="color:rgba(255,240,220,0.65);font-size:0.95rem;font-weight:300;line-height:1.8;max-width:400px;margin-bottom:1.5rem;">
+      <p>
         Browse our portfolio of braids and protective styles crafted right here in Nashville.
       </p>
       <a href="gallery.html" class="btn-primary">View Full Gallery</a>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;width:280px;height:200px;border-radius:6px;overflow:hidden;flex-shrink:0;">
-      <div style="background:linear-gradient(135deg,#7B5EA7,#4A3060);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#127807;</div>
-      <div style="background:linear-gradient(135deg,#3A8A7A,#5C3347);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#10024;</div>
-      <div style="background:linear-gradient(135deg,#C8930A,#C0503C);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#128081;</div>
-      <div style="background:linear-gradient(135deg,#5C3347,#7B5EA7);display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:0.7;">&#127800;</div>
+
+    <div class="gallery-teaser-grid">
+      <div style="background:linear-gradient(135deg,#7B5EA7,#4A3060);">&#127807;</div>
+      <div style="background:linear-gradient(135deg,#3A8A7A,#5C3347);">&#10024;</div>
+      <div style="background:linear-gradient(135deg,#C8930A,#C0503C);">&#128081;</div>
+      <div style="background:linear-gradient(135deg,#5C3347,#7B5EA7);">&#127800;</div>
     </div>
   </div>
 
   <!-- ════════ FOOTER ════════ -->
   <footer>
     <div class="footer-brand">More Hair by Makiah</div>
-    <p>&copy; 2025 More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
+    <p>&copy; <span id="copy-year"></span> More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
     <div class="footer-social">
       <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
       <a href="booking.html">Book Now</a>
@@ -146,12 +148,12 @@
 
   <!-- ════════ SCRIPTS ════════ -->
   <script>
-    /* PWA: register service worker */
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').catch(function () {});
     }
 
-    /* Mobile hamburger menu */
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+
     var hamburger = document.getElementById('hamburger');
     var drawer    = document.getElementById('nav-drawer');
 
@@ -160,7 +162,6 @@
       hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
-    /* Close drawer when a link is tapped */
     drawer.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         drawer.classList.remove('open');

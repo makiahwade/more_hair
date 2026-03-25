@@ -550,6 +550,8 @@ nav {
   transition: opacity 0.3s, transform 0.5s;
 }
 
+/* Gallery items — when real photos are added, swap the background
+   for an <img> tag with object-fit: cover inside each .gallery-item */
 .gallery-item:nth-child(1) .gallery-item-inner { background: linear-gradient(135deg, #7B5EA7, #4A3060); }
 .gallery-item:nth-child(2) .gallery-item-inner { background: linear-gradient(135deg, #3A8A7A, #5C3347); }
 .gallery-item:nth-child(3) .gallery-item-inner { background: linear-gradient(135deg, #C8930A, #C0503C); }
@@ -886,6 +888,75 @@ footer a:hover { opacity: 0.7; }
   margin-bottom: 1.5rem;
 }
 
+/* Gallery teaser dark strip — responsive wrapper */
+.gallery-teaser {
+  background: linear-gradient(135deg, #3D1F2D 0%, #5C3347 100%);
+  padding: 4rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.gallery-teaser-text p {
+  color: rgba(255,240,220,0.65);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 400px;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-teaser-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  width: 280px;
+  height: 200px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.gallery-teaser-grid div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+/* Teaser stat cards */
+.teaser-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.teaser-stat-card {
+  background: var(--lavender-bg);
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  min-width: 130px;
+}
+
+.teaser-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.teaser-stat-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
 /* ================================================
    ANIMATIONS
    ================================================ */
@@ -913,18 +984,54 @@ footer a:hover { opacity: 0.7; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
 
-  /* Hero */
-  .hero { grid-template-columns: 1fr; min-height: 100svh; }
-  .hero-right { display: none; }
+  /* ── HERO: stack vertically so photo is always visible ── */
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: 100svh;
+  }
+
+  /* Text block comes first */
   .hero-left {
-    padding: calc(var(--nav-h) + 2.5rem) 1.5rem 3rem;
+    padding: calc(var(--nav-h) + 2rem) 1.5rem 2rem;
     text-align: center;
     align-items: center;
+    order: 1;
   }
+
   .hero-tag { justify-content: center; }
-  .hero-sub { text-align: center; }
+  .hero-sub { text-align: center; max-width: 100%; }
   .hero-cta-group { justify-content: center; }
   .hero-stats { justify-content: center; gap: 2rem; }
+
+  /* Photo block comes second — shown as a tall banner below the text */
+  .hero-right {
+    display: block;         /* was "display: none" — now always visible */
+    order: 2;
+    height: 55vw;           /* responsive height — tall enough to see the style */
+    min-height: 260px;
+    max-height: 420px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Fade only from top on mobile so photo isn't hidden */
+  .hero-photo-fade {
+    background: linear-gradient(
+      to bottom,
+      var(--hero-dark) 0%,
+      transparent 25%
+    );
+  }
 
   /* Page banner */
   .page-banner { padding: 3.5rem 1.5rem 3rem; }
@@ -954,7 +1061,27 @@ footer a:hover { opacity: 0.7; }
 
   .cf-row { grid-template-columns: 1fr; }
 
-  .teaser-strip { padding: 3rem 1.25rem; flex-direction: column; }
+  /* Teaser strips */
+  .teaser-strip {
+    padding: 3rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .teaser-stats { justify-content: center; width: 100%; }
+
+  .teaser-stat-card { min-width: 0; flex: 1; }
+
+  /* Gallery teaser dark strip */
+  .gallery-teaser {
+    padding: 3rem 1.25rem;
+    flex-direction: column;
+  }
+
+  .gallery-teaser-grid {
+    width: 100%;
+    height: 160px;
+  }
 
   /* Footer */
   footer {
@@ -966,10 +1093,15 @@ footer a:hover { opacity: 0.7; }
 }
 
 /* ================================================
-   RESPONSIVE — SMALL MOBILE  (max 400px)
+   RESPONSIVE — SMALL MOBILE  (max 480px)
    ================================================ */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .hero h1 { font-size: 2.4rem; }
   .hero-stats { flex-direction: column; gap: 1.2rem; align-items: center; }
-  .gallery-grid { grid-template-columns: 1fr; grid-template-rows: repeat(5, 200px); }
+
+  /* 1-column gallery at narrow widths for breathing room */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 220px);
+  }
 }
