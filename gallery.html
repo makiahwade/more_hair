@@ -56,33 +56,39 @@
         <a href="booking.html" class="btn-primary">Book Your Style</a>
       </div>
 
-      <!--
-        GALLERY PHOTOS
-        To add real photos, replace each .gallery-item-inner div with an <img> tag:
-        <img src="your-photo.jpg" alt="Description" style="width:100%;height:100%;object-fit:cover;" />
-        Then remove the emoji inside .gallery-item-inner or delete that div entirely.
-      -->
       <div class="gallery-grid">
+
+        <!-- Photo 1: gallery-pic-1.png — cornrow side profile (spans 2 rows) -->
         <div class="gallery-item">
-          <div class="gallery-item-inner">&#127807;</div>
+          <img src="gallery-pic-1.png" alt="Sleek cornrow side profile" class="gallery-photo" />
+          <div class="gallery-overlay"><span class="gallery-tag">Cornrow Style</span></div>
+        </div>
+
+        <!-- Photo 2: gallery-pic-2.png — geometric cornrows with beads -->
+        <div class="gallery-item">
+          <img src="gallery-pic-2.png" alt="Geometric cornrows with gold beads" class="gallery-photo" />
+          <div class="gallery-overlay"><span class="gallery-tag">Geometric Cornrows</span></div>
+        </div>
+
+        <!-- Photo 3: gallery-pic-3.png — knotless box braids 3-panel -->
+        <div class="gallery-item">
+          <img src="gallery-pic-3.png" alt="Knotless box braids — front and back views" class="gallery-photo" />
           <div class="gallery-overlay"><span class="gallery-tag">Knotless Box Braids</span></div>
         </div>
-        <div class="gallery-item">
-          <div class="gallery-item-inner">&#10024;</div>
-          <div class="gallery-overlay"><span class="gallery-tag">Goddess Braids</span></div>
+
+        <!-- Placeholder slots — swap in real photos when you have more -->
+        <div class="gallery-item gallery-item--placeholder">
+          <div class="gallery-overlay gallery-overlay--always">
+            <span class="gallery-tag">More Styles Coming Soon</span>
+          </div>
         </div>
-        <div class="gallery-item">
-          <div class="gallery-item-inner">&#128081;</div>
-          <div class="gallery-overlay"><span class="gallery-tag">Fulani Style</span></div>
+
+        <div class="gallery-item gallery-item--placeholder">
+          <div class="gallery-overlay gallery-overlay--always">
+            <span class="gallery-tag">Follow Us on Instagram</span>
+          </div>
         </div>
-        <div class="gallery-item">
-          <div class="gallery-item-inner">&#127800;</div>
-          <div class="gallery-overlay"><span class="gallery-tag">Cornrow Design</span></div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-item-inner">&#128171;</div>
-          <div class="gallery-overlay"><span class="gallery-tag">Senegalese Twists</span></div>
-        </div>
+
       </div>
 
       <p style="text-align:center;color:rgba(255,240,220,0.5);font-size:0.85rem;margin-top:2rem;font-weight:300;">
@@ -97,7 +103,7 @@
   <!-- ════════ FOOTER ════════ -->
   <footer>
     <div class="footer-brand">More Hair by Makiah</div>
-    <p>&copy; <span id="copy-year"></span> More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
+    <p>&copy; 2025 More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
     <div class="footer-social">
       <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
       <a href="booking.html">Book Now</a>
@@ -107,9 +113,6 @@
 
   <script>
     if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
-
-    document.getElementById('copy-year').textContent = new Date().getFullYear();
-
     var hamburger = document.getElementById('hamburger');
     var drawer    = document.getElementById('nav-drawer');
     hamburger.addEventListener('click', function () {
