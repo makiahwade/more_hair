@@ -735,7 +735,46 @@
         widget.style.display = 'none';
       }
     }());
-  </script>
+  </script
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+  var SUPABASE_URL = 'sb_publishable_BsMF8bZG9OJryImPuuMprw_e48eO0L1
+';
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxlb2lucWZ2d2xpbHZmeXhheHJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MTU0NTQsImV4cCI6MjA5Mjk5MTQ1NH0.RHKUVT5UGufTRGGXhO-x4fAm5xH4MZGiq1hB9z6H_xo';
+  var client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  document.getElementById('booking-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('booking-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    var row = {
+      first_name: document.getElementById('bf-fname').value,
+      phone:      document.getElementById('bf-phone').value,
+      style:      document.getElementById('bf-style').value,
+      notes:      document.getElementById('bf-notes').value
+    };
+
+    var result = await client.from('waitlist').insert([row]);
+
+    if (result.error) {
+      alert('Something went wrong. Please text Makiah directly!');
+      btn.textContent = 'Request Appointment';
+      btn.disabled = false;
+    } else {
+      document.getElementById('booking-form').style.display = 'none';
+      document.getElementById('booking-success').style.display = 'block';
+    }
+  });
+</script>
+
+<div id="booking-success" style="display:none; text-align:center; padding:3rem; background:#eaf7f0; border-radius:10px; margin:2rem;">
+  <div style="font-size:3rem;">✅</div>
+  <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; margin:1rem 0;">You're on the list!</h3>
+  <p style="color:#555;">Makiah will text you within 24 hours to confirm!</p>
+</div>
+    
 
 </body>
 </html>
