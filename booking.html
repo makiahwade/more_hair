@@ -3,778 +3,416 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Book a hair braiding appointment with Makiah in Nashville, TN. Choose your style and pick a time that works for you." />
+  <meta name="description" content="Book a hair braiding appointment with Makiah in Nashville, TN." />
   <meta name="theme-color" content="#3D1F2D" />
   <title>Book an Appointment &mdash; More Hair by Makiah</title>
 
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
   <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
 
-  <!-- ════════ NAV ════════ -->
-  <nav>
-    <a href="index.html" class="logo">
-      <div class="logo-icon">&#128081;</div>
-      <span class="logo-text">More Hair <span>by Makiah</span></span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="booking.html" class="nav-book active">Book Now</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="nav-drawer" id="nav-drawer" role="navigation">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-    <a href="booking.html" class="drawer-book">Book Now</a>
-  </div>
-
-  <!-- ════════ PAGE CONTENT ════════ -->
-  <div class="page-content">
-    <div class="page-banner">
-      <div class="section-label">Reserve Your Seat</div>
-      <h1>Book Your <em>Appointment</em></h1>
-      <p>Pick your date and time below. A $25 deposit is required to hold your appointment.</p>
-    </div>
-
-    <!--
-      ══════════════════════════════════════════
-      CALENDLY SETUP — 3 easy steps:
-        1. Sign up at https://calendly.com (free)
-        2. Create an event type for your service
-        3. Replace YOUR_CALENDLY_USERNAME below
-           with your real Calendly username
-           e.g. data-url="https://calendly.com/makiah-hair"
-      ══════════════════════════════════════════
-    -->
-    <section class="booking-section">
-
-      <div>
-        <div class="section-label">Details</div>
-        <h2 class="section-title">What to Know<br />Before You Book</h2>
-        <div class="booking-details">
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128205;</div>
-            <div class="detail-text">
-              <strong>Location</strong>
-              <span>Nashville, TN &middot; Home studio &amp; mobile available</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128336;</div>
-            <div class="detail-text">
-              <strong>Hours</strong>
-              <span>Tue&ndash;Sat: 8am &ndash; 7pm &middot; Sun by request</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128233;</div>
-            <div class="detail-text">
-              <strong>Deposit Required</strong>
-              <span>$25 non-refundable deposit holds your appointment</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#9986;</div>
-            <div class="detail-text">
-              <strong>Hair Included</strong>
-              <span>All braiding hair is included in the quoted price</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128247;</div>
-            <div class="detail-text">
-              <strong>Reference Photos Welcome</strong>
-              <span>Bring or send inspiration photos &mdash; we love to see your vision</span>
-            </div>
-          </div>
-
-        </div>
-
-        <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--text-muted);line-height:1.7;">
-          Have questions first?
-          <a href="contact.html" style="color:var(--gold);font-weight:500;text-decoration:underline;">Send us a message</a>
-          and we will get back to you within 24 hours.
-        </p>
-      </div>
-
-      <!-- Calendly widget -->
-      <div class="calendly-wrap">
-        <div
-          class="calendly-inline-widget"
-          id="calendly-widget"
-          data-url="https://calendly.com/YOUR_CALENDLY_USERNAME"
-          style="min-width:100%;height:660px;">
-        </div>
-        <!-- This placeholder shows until you add your real Calendly link above -->
-        <div class="calendly-placeholder" id="calendly-placeholder">
-          <div style="font-size:3rem;">&#128197;</div>
-          <p>
-            Your Calendly booking calendar will appear here.<br /><br />
-            Replace <code>YOUR_CALENDLY_USERNAME</code> in
-            <strong>booking.html</strong> with your real Calendly username to activate online booking.<br /><br />
-            Sign up free at <strong>calendly.com</strong>.
-          </p>
-        </div>
-      </div>
-
-    </section>
-  </div><!-- end .page-content -->
-
-  <!-- ════════ FOOTER ════════ -->
-  <footer>
-    <div class="footer-brand">More Hair by Makiah</div>
-    <p>&copy; <span id="copy-year"></span> More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
-    <div class="footer-social">
-      <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
-      <a href="booking.html">Book Now</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </footer>
-
-  <!-- Calendly widget script — loads only when a real username is set -->
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-  <script>
-    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
-
-    document.getElementById('copy-year').textContent = new Date().getFullYear();
-
-    /* Hamburger */
-    var hamburger = document.getElementById('hamburger');
-    var drawer    = document.getElementById('nav-drawer');
-    hamburger.addEventListener('click', function () {
-      var open = drawer.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    drawer.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        drawer.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    /* Show Calendly widget only when a real username has been set */
-    (function () {
-      var widget      = document.getElementById('calendly-widget');
-      var placeholder = document.getElementById('calendly-placeholder');
-      if (!widget || !placeholder) { return; }
-      if (widget.dataset.url && widget.dataset.url.indexOf('YOUR_CALENDLY_USERNAME') === -1) {
-        placeholder.style.display = 'none';
-      } else {
-        widget.style.display = 'none';
-      }
-    }());
-  </script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Book a hair braiding appointment with Makiah in Nashville, TN. Choose your style and pick a time that works for you." />
-  <meta name="theme-color" content="#3D1F2D" />
-  <title>Book an Appointment &mdash; More Hair by Makiah</title>
-
-  <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-  <!-- ════════ NAV ════════ -->
-  <nav>
-    <a href="index.html" class="logo">
-      <div class="logo-icon">&#128081;</div>
-      <span class="logo-text">More Hair <span>by Makiah</span></span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="booking.html" class="nav-book active">Book Now</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="nav-drawer" id="nav-drawer" role="navigation">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-    <a href="booking.html" class="drawer-book">Book Now</a>
-  </div>
-
-  <!-- ════════ PAGE CONTENT ════════ -->
-  <div class="page-content">
-    <div class="page-banner">
-      <div class="section-label">Reserve Your Seat</div>
-      <h1>Book Your <em>Appointment</em></h1>
-      <p>Pick your date and time below. A $25 deposit is required to hold your appointment.</p>
-    </div>
-
-    <!--
-      ══════════════════════════════════════════
-      CALENDLY SETUP — 3 easy steps:
-        1. Sign up at https://calendly.com (free)
-        2. Create an event type for your service
-        3. Replace YOUR_CALENDLY_USERNAME below
-           with your real Calendly username
-           e.g. data-url="https://calendly.com/makiah-hair"
-      ══════════════════════════════════════════
-    -->
-    <section class="booking-section">
-
-      <div>
-        <div class="section-label">Details</div>
-        <h2 class="section-title">What to Know<br />Before You Book</h2>
-        <div class="booking-details">
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128205;</div>
-            <div class="detail-text">
-              <strong>Location</strong>
-              <span>Nashville, TN &middot; Home studio &amp; mobile available</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128336;</div>
-            <div class="detail-text">
-              <strong>Hours</strong>
-              <span>Tue&ndash;Sat: 8am &ndash; 7pm &middot; Sun by request</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128233;</div>
-            <div class="detail-text">
-              <strong>Deposit Required</strong>
-              <span>$25 non-refundable deposit holds your appointment</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#9986;</div>
-            <div class="detail-text">
-              <strong>Hair Included</strong>
-              <span>All braiding hair is included in the quoted price</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128247;</div>
-            <div class="detail-text">
-              <strong>Reference Photos Welcome</strong>
-              <span>Bring or send inspiration photos &mdash; we love to see your vision</span>
-            </div>
-          </div>
-
-        </div>
-
-        <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--text-muted);line-height:1.7;">
-          Have questions first?
-          <a href="contact.html" style="color:var(--gold);font-weight:500;text-decoration:underline;">Send us a message</a>
-          and we will get back to you within 24 hours.
-        </p>
-      </div>
-
-      <!-- Calendly widget -->
-      <div class="calendly-wrap">
-        <div
-          class="calendly-inline-widget"
-          id="calendly-widget"
-          data-url="https://calendly.com/YOUR_CALENDLY_USERNAME"
-          style="min-width:100%;height:660px;">
-        </div>
-        <!-- This placeholder shows until you add your real Calendly link above -->
-        <div class="calendly-placeholder" id="calendly-placeholder">
-          <div style="font-size:3rem;">&#128197;</div>
-          <p>
-            Your Calendly booking calendar will appear here.<br /><br />
-            Replace <code>YOUR_CALENDLY_USERNAME</code> in
-            <strong>booking.html</strong> with your real Calendly username to activate online booking.<br /><br />
-            Sign up free at <strong>calendly.com</strong>.
-          </p>
-        </div>
-      </div>
-
-    </section>
-  </div><!-- end .page-content -->
-
-  <!-- ════════ FOOTER ════════ -->
-  <footer>
-    <div class="footer-brand">More Hair by Makiah</div>
-    <p>&copy; <span id="copy-year"></span> More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
-    <div class="footer-social">
-      <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
-      <a href="booking.html">Book Now</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </footer>
-
-  <!-- Calendly widget script — loads only when a real username is set -->
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-  <script>
-    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
-
-    document.getElementById('copy-year').textContent = new Date().getFullYear();
-
-    /* Hamburger */
-    var hamburger = document.getElementById('hamburger');
-    var drawer    = document.getElementById('nav-drawer');
-    hamburger.addEventListener('click', function () {
-      var open = drawer.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    drawer.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        drawer.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    /* Show Calendly widget only when a real username has been set */
-    (function () {
-      var widget      = document.getElementById('calendly-widget');
-      var placeholder = document.getElementById('calendly-placeholder');
-      if (!widget || !placeholder) { return; }
-      if (widget.dataset.url && widget.dataset.url.indexOf('YOUR_CALENDLY_USERNAME') === -1) {
-        placeholder.style.display = 'none';
-      } else {
-        widget.style.display = 'none';
-      }
-    }());
-  </script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Book a hair braiding appointment with Makiah in Nashville, TN. Choose your style and pick a time that works for you." />
-  <meta name="theme-color" content="#3D1F2D" />
-  <title>Book an Appointment &mdash; More Hair by Makiah</title>
-
-  <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-  <!-- ════════ NAV ════════ -->
-  <nav>
-    <a href="index.html" class="logo">
-      <div class="logo-icon">&#128081;</div>
-      <span class="logo-text">More Hair <span>by Makiah</span></span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="booking.html" class="nav-book active">Book Now</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="nav-drawer" id="nav-drawer" role="navigation">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-    <a href="booking.html" class="drawer-book">Book Now</a>
-  </div>
-
-  <!-- ════════ PAGE CONTENT ════════ -->
-  <div class="page-content">
-    <div class="page-banner">
-      <div class="section-label">Reserve Your Seat</div>
-      <h1>Book Your <em>Appointment</em></h1>
-      <p>Pick your date and time below. A $25 deposit is required to hold your appointment.</p>
-    </div>
-
-    <!--
-      ══════════════════════════════════════════
-      CALENDLY SETUP — 3 easy steps:
-        1. Sign up at https://calendly.com (free)
-        2. Create an event type for your service
-        3. Replace YOUR_CALENDLY_USERNAME below
-           with your real Calendly username
-           e.g. data-url="https://calendly.com/makiah-hair"
-      ══════════════════════════════════════════
-    -->
-    <section class="booking-section">
-
-      <div>
-        <div class="section-label">Details</div>
-        <h2 class="section-title">What to Know<br />Before You Book</h2>
-        <div class="booking-details">
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128205;</div>
-            <div class="detail-text">
-              <strong>Location</strong>
-              <span>Nashville, TN &middot; Home studio &amp; mobile available</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128336;</div>
-            <div class="detail-text">
-              <strong>Hours</strong>
-              <span>Tue&ndash;Sat: 8am &ndash; 7pm &middot; Sun by request</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128233;</div>
-            <div class="detail-text">
-              <strong>Deposit Required</strong>
-              <span>$25 non-refundable deposit holds your appointment</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#9986;</div>
-            <div class="detail-text">
-              <strong>Hair Included</strong>
-              <span>All braiding hair is included in the quoted price</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128247;</div>
-            <div class="detail-text">
-              <strong>Reference Photos Welcome</strong>
-              <span>Bring or send inspiration photos &mdash; we love to see your vision</span>
-            </div>
-          </div>
-
-        </div>
-
-        <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--text-muted);line-height:1.7;">
-          Have questions first?
-          <a href="contact.html" style="color:var(--gold);font-weight:500;text-decoration:underline;">Send us a message</a>
-          and we will get back to you within 24 hours.
-        </p>
-      </div>
-
-      <!-- Calendly widget -->
-      <div class="calendly-wrap">
-        <div
-          class="calendly-inline-widget"
-          id="calendly-widget"
-          data-url="https://calendly.com/YOUR_CALENDLY_USERNAME"
-          style="min-width:100%;height:660px;">
-        </div>
-        <!-- This placeholder shows until you add your real Calendly link above -->
-        <div class="calendly-placeholder" id="calendly-placeholder">
-          <div style="font-size:3rem;">&#128197;</div>
-          <p>
-            Your Calendly booking calendar will appear here.<br /><br />
-            Replace <code>YOUR_CALENDLY_USERNAME</code> in
-            <strong>booking.html</strong> with your real Calendly username to activate online booking.<br /><br />
-            Sign up free at <strong>calendly.com</strong>.
-          </p>
-        </div>
-      </div>
-
-    </section>
-  </div><!-- end .page-content -->
-
-  <!-- ════════ FOOTER ════════ -->
-  <footer>
-    <div class="footer-brand">More Hair by Makiah</div>
-    <p>&copy; <span id="copy-year"></span> More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
-    <div class="footer-social">
-      <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
-      <a href="booking.html">Book Now</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </footer>
-
-  <!-- Calendly widget script — loads only when a real username is set -->
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-  <script>
-    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
-
-    document.getElementById('copy-year').textContent = new Date().getFullYear();
-
-    /* Hamburger */
-    var hamburger = document.getElementById('hamburger');
-    var drawer    = document.getElementById('nav-drawer');
-    hamburger.addEventListener('click', function () {
-      var open = drawer.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    drawer.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        drawer.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    /* Show Calendly widget only when a real username has been set */
-    (function () {
-      var widget      = document.getElementById('calendly-widget');
-      var placeholder = document.getElementById('calendly-placeholder');
-      if (!widget || !placeholder) { return; }
-      if (widget.dataset.url && widget.dataset.url.indexOf('YOUR_CALENDLY_USERNAME') === -1) {
-        placeholder.style.display = 'none';
-      } else {
-        widget.style.display = 'none';
-      }
-    }());
-  </script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Book a hair braiding appointment with Makiah in Nashville, TN. Choose your style and pick a time that works for you." />
-  <meta name="theme-color" content="#3D1F2D" />
-  <title>Book an Appointment &mdash; More Hair by Makiah</title>
-
-  <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-  <!-- ════════ NAV ════════ -->
-  <nav>
-    <a href="index.html" class="logo">
-      <div class="logo-icon">&#128081;</div>
-      <span class="logo-text">More Hair <span>by Makiah</span></span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="booking.html" class="nav-book active">Book Now</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="nav-drawer" id="nav-drawer" role="navigation">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-    <a href="booking.html" class="drawer-book">Book Now</a>
-  </div>
-
-  <!-- ════════ PAGE CONTENT ════════ -->
-  <div class="page-content">
-    <div class="page-banner">
-      <div class="section-label">Reserve Your Seat</div>
-      <h1>Book Your <em>Appointment</em></h1>
-      <p>Pick your date and time below. A $25 deposit is required to hold your appointment.</p>
-    </div>
-
-    <!--
-      ══════════════════════════════════════════
-      CALENDLY SETUP — 3 easy steps:
-        1. Sign up at https://calendly.com (free)
-        2. Create an event type for your service
-        3. Replace YOUR_CALENDLY_USERNAME below
-           with your real Calendly username
-           e.g. data-url="https://calendly.com/makiah-hair"
-      ══════════════════════════════════════════
-    -->
-    <section class="booking-section">
-
-      <div>
-        <div class="section-label">Details</div>
-        <h2 class="section-title">What to Know<br />Before You Book</h2>
-        <div class="booking-details">
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128205;</div>
-            <div class="detail-text">
-              <strong>Location</strong>
-              <span>Nashville, TN &middot; Home studio &amp; mobile available</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128336;</div>
-            <div class="detail-text">
-              <strong>Hours</strong>
-              <span>Tue&ndash;Sat: 8am &ndash; 7pm &middot; Sun by request</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128233;</div>
-            <div class="detail-text">
-              <strong>Deposit Required</strong>
-              <span>$25 non-refundable deposit holds your appointment</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#9986;</div>
-            <div class="detail-text">
-              <strong>Hair Included</strong>
-              <span>All braiding hair is included in the quoted price</span>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">&#128247;</div>
-            <div class="detail-text">
-              <strong>Reference Photos Welcome</strong>
-              <span>Bring or send inspiration photos &mdash; we love to see your vision</span>
-            </div>
-          </div>
-
-        </div>
-
-        <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--text-muted);line-height:1.7;">
-          Have questions first?
-          <a href="contact.html" style="color:var(--gold);font-weight:500;text-decoration:underline;">Send us a message</a>
-          and we will get back to you within 24 hours.
-        </p>
-      </div>
-
-      <!-- Calendly widget -->
-      <div class="calendly-wrap">
-        <div
-          class="calendly-inline-widget"
-          id="calendly-widget"
-          data-url="https://calendly.com/YOUR_CALENDLY_USERNAME"
-          style="min-width:100%;height:660px;">
-        </div>
-        <!-- This placeholder shows until you add your real Calendly link above -->
-        <div class="calendly-placeholder" id="calendly-placeholder">
-          <div style="font-size:3rem;">&#128197;</div>
-          <p>
-            Your Calendly booking calendar will appear here.<br /><br />
-            Replace <code>YOUR_CALENDLY_USERNAME</code> in
-            <strong>booking.html</strong> with your real Calendly username to activate online booking.<br /><br />
-            Sign up free at <strong>calendly.com</strong>.
-          </p>
-        </div>
-      </div>
-
-    </section>
-  </div><!-- end .page-content -->
-
-  <!-- ════════ FOOTER ════════ -->
-  <footer>
-    <div class="footer-brand">More Hair by Makiah</div>
-    <p>&copy; <span id="copy-year"></span> More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
-    <div class="footer-social">
-      <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
-      <a href="booking.html">Book Now</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </footer>
-
-  <!-- Calendly widget script — loads only when a real username is set -->
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-  <script>
-    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
-
-    document.getElementById('copy-year').textContent = new Date().getFullYear();
-
-    /* Hamburger */
-    var hamburger = document.getElementById('hamburger');
-    var drawer    = document.getElementById('nav-drawer');
-    hamburger.addEventListener('click', function () {
-      var open = drawer.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    drawer.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        drawer.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    /* Show Calendly widget only when a real username has been set */
-    (function () {
-      var widget      = document.getElementById('calendly-widget');
-      var placeholder = document.getElementById('calendly-placeholder');
-      if (!widget || !placeholder) { return; }
-      if (widget.dataset.url && widget.dataset.url.indexOf('YOUR_CALENDLY_USERNAME') === -1) {
-        placeholder.style.display = 'none';
-      } else {
-        widget.style.display = 'none';
-      }
-    }());
-  </script
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script>
-  var SUPABASE_URL = 'sb_publishable_BsMF8bZG9OJryImPuuMprw_e48eO0L1
-';
-  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxlb2lucWZ2d2xpbHZmeXhheHJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MTU0NTQsImV4cCI6MjA5Mjk5MTQ1NH0.RHKUVT5UGufTRGGXhO-x4fAm5xH4MZGiq1hB9z6H_xo';
-  var client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-  document.getElementById('booking-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    var btn = document.getElementById('booking-btn');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    var row = {
-      first_name: document.getElementById('bf-fname').value,
-      phone:      document.getElementById('bf-phone').value,
-      style:      document.getElementById('bf-style').value,
-      notes:      document.getElementById('bf-notes').value
-    };
-
-    var result = await client.from('waitlist').insert([row]);
-
-    if (result.error) {
-      alert('Something went wrong. Please text Makiah directly!');
-      btn.textContent = 'Request Appointment';
-      btn.disabled = false;
-    } else {
-      document.getElementById('booking-form').style.display = 'none';
-      document.getElementById('booking-success').style.display = 'block';
+  <style>
+    /* ── Booking form styles ── */
+    .waitlist-wrap {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 28px rgba(0,0,0,0.09);
+      padding: 2.5rem;
     }
-  });
-</script>
+    .waitlist-wrap h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      color: var(--deep);
+      margin-bottom: 0.35rem;
+    }
+    .form-intro {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      line-height: 1.65;
+    }
+    .wf-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 1.1rem;
+    }
+    .wf-group label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .wf-group input,
+    .wf-group select,
+    .wf-group textarea {
+      padding: 0.85rem 1rem;
+      border: 1.5px solid rgba(0,0,0,0.13);
+      background: var(--warm-white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.92rem;
+      color: var(--deep);
+      outline: none;
+      border-radius: 4px;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .wf-group input:focus,
+    .wf-group select:focus,
+    .wf-group textarea:focus {
+      border-color: var(--gold);
+      background: #fff;
+    }
+    .wf-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .wf-submit {
+      width: 100%;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .wf-submit:hover:not(:disabled) {
+      background: var(--gold-dark);
+      transform: translateY(-1px);
+    }
+    .wf-submit:disabled { opacity: 0.65; cursor: not-allowed; }
+    .deposit-note {
+      display: flex;
+      gap: 0.75rem;
+      background: #FEF9EC;
+      border: 1.5px solid #F4D186;
+      border-radius: 5px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.83rem;
+      color: #6b4c00;
+      line-height: 1.6;
+    }
+    .wf-error {
+      display: none;
+      padding: 0.9rem 1rem;
+      border-radius: 5px;
+      background: #fdf0ee;
+      border: 1.5px solid #e8927a;
+      color: #7a2c1a;
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+    }
+    #booking-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+      background: #eaf7f0;
+      border-radius: 10px;
+    }
+    #booking-success .success-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    #booking-success h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--deep);
+      margin-bottom: 0.5rem;
+    }
+    #booking-success p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; }
+    @media (max-width: 600px) {
+      .wf-row { grid-template-columns: 1fr; }
+      .waitlist-wrap { padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
 
-<div id="booking-success" style="display:none; text-align:center; padding:3rem; background:#eaf7f0; border-radius:10px; margin:2rem;">
-  <div style="font-size:3rem;">✅</div>
-  <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; margin:1rem 0;">You're on the list!</h3>
-  <p style="color:#555;">Makiah will text you within 24 hours to confirm!</p>
-</div>
-    
+  <!-- ════════ NAV ════════ -->
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">&#128081;</div>
+      <span class="logo-text">More Hair <span>by Makiah</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="booking.html" class="nav-book active">Book Now</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-drawer" id="nav-drawer" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html" class="drawer-book">Book Now</a>
+  </div>
+
+  <!-- ════════ PAGE CONTENT ════════ -->
+  <div class="page-content">
+    <div class="page-banner">
+      <div class="section-label">Reserve Your Seat</div>
+      <h1>Book Your <em>Appointment</em></h1>
+      <p>Fill out the form below and Makiah will reach out within 24 hours to confirm your date.</p>
+    </div>
+
+    <section class="booking-section">
+
+      <!-- LEFT: info panel -->
+      <div>
+        <div class="section-label">Details</div>
+        <h2 class="section-title">What to Know<br />Before You Book</h2>
+        <div class="booking-details">
+
+          <div class="detail-item">
+            <div class="detail-icon">&#128205;</div>
+            <div class="detail-text">
+              <strong>Location</strong>
+              <span>Nashville, TN &middot; Home studio &amp; mobile available</span>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">&#128336;</div>
+            <div class="detail-text">
+              <strong>Hours</strong>
+              <span>Tue&ndash;Sat: 8am &ndash; 7pm &middot; Sun by request</span>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">&#128233;</div>
+            <div class="detail-text">
+              <strong>Deposit Required</strong>
+              <span>$25 non-refundable deposit holds your appointment</span>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">&#9986;</div>
+            <div class="detail-text">
+              <strong>Hair Included</strong>
+              <span>All braiding hair is included in the quoted price</span>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">&#128247;</div>
+            <div class="detail-text">
+              <strong>Reference Photos Welcome</strong>
+              <span>Bring or send inspiration photos &mdash; we love to see your vision</span>
+            </div>
+          </div>
+
+        </div>
+
+        <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--text-muted);line-height:1.7;">
+          Have questions first?
+          <a href="contact.html" style="color:var(--gold);font-weight:500;text-decoration:underline;">Send us a message</a>
+          and we will get back to you within 24 hours.
+        </p>
+      </div>
+
+      <!-- RIGHT: booking form connected to Supabase -->
+      <div class="waitlist-wrap">
+
+        <!-- Success message (hidden until form submits) -->
+        <div id="booking-success">
+          <div class="success-icon">&#10003;</div>
+          <h3>You&rsquo;re on the list!</h3>
+          <p>Makiah will reach out within 24 hours to confirm your appointment and send deposit info. Check your texts!</p>
+        </div>
+
+        <!-- The actual form -->
+        <div id="form-inner">
+          <h3>Request an Appointment</h3>
+          <p class="form-intro">Fill out your info below — this goes straight to Makiah!</p>
+
+          <div class="deposit-note">
+            &#128179;&nbsp;
+            <div>A <strong>$25 deposit</strong> is required to hold your spot. Makiah will send a payment link after confirming.</div>
+          </div>
+
+          <div class="wf-error" id="wf-error">Please fill in all required fields.</div>
+
+          <form id="booking-form" novalidate>
+
+            <div class="wf-row">
+              <div class="wf-group">
+                <label for="bf-fname">First Name *</label>
+                <input id="bf-fname" type="text" placeholder="Maya" required />
+              </div>
+              <div class="wf-group">
+                <label for="bf-lname">Last Name *</label>
+                <input id="bf-lname" type="text" placeholder="Johnson" required />
+              </div>
+            </div>
+
+            <div class="wf-group">
+              <label for="bf-phone">Phone Number *</label>
+              <input id="bf-phone" type="tel" placeholder="(615) 555-0123" required />
+            </div>
+
+            <div class="wf-group">
+              <label for="bf-email">Email Address</label>
+              <input id="bf-email" type="email" placeholder="maya@email.com" />
+            </div>
+
+            <div class="wf-group">
+              <label for="bf-style">Style Requested *</label>
+              <select id="bf-style" required>
+                <option value="">— Select a style —</option>
+                <option value="Knotless Braids">Knotless Braids (starting $150)</option>
+                <option value="Cornrows">Cornrows (starting $65)</option>
+                <option value="Goddess Braids">Goddess Braids (starting $120)</option>
+                <option value="Senegalese Twists">Senegalese Twists (starting $180)</option>
+                <option value="Fulani Braids">Fulani Braids (starting $130)</option>
+                <option value="Kids Style">Kids&rsquo; Style (starting $45)</option>
+                <option value="Not Sure">Not Sure &mdash; Let&rsquo;s Talk</option>
+              </select>
+            </div>
+
+            <div class="wf-row">
+              <div class="wf-group">
+                <label for="bf-date">Preferred Date</label>
+                <input id="bf-date" type="date" />
+              </div>
+              <div class="wf-group">
+                <label for="bf-time">Preferred Time</label>
+                <select id="bf-time">
+                  <option value="">— Any time —</option>
+                  <option value="Morning (8am-12pm)">Morning (8am&ndash;12pm)</option>
+                  <option value="Afternoon (12pm-4pm)">Afternoon (12pm&ndash;4pm)</option>
+                  <option value="Evening (4pm-7pm)">Evening (4pm&ndash;7pm)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="wf-group">
+              <label for="bf-notes">Additional Notes</label>
+              <textarea id="bf-notes" rows="3"
+                placeholder="Hair color, length, reference photo link, special occasion..."></textarea>
+            </div>
+
+            <button class="wf-submit" type="submit" id="booking-btn">
+              Request Appointment &rarr;
+            </button>
+
+          </form>
+        </div><!-- end #form-inner -->
+      </div><!-- end .waitlist-wrap -->
+
+    </section>
+  </div><!-- end .page-content -->
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer>
+    <div class="footer-brand">More Hair by Makiah</div>
+    <p>&copy; <span id="copy-year"></span> More Hair by Makiah &middot; Nashville, TN &middot; All rights reserved.</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/MoreHairByMakiah" target="_blank" rel="noopener">Instagram</a>
+      <a href="booking.html">Book Now</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ════════ SCRIPTS ════════ -->
+
+  <!-- Supabase library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+  <script>
+    /* ── PWA & nav ── */
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+    var hamburger = document.getElementById('hamburger');
+    var drawer    = document.getElementById('nav-drawer');
+    hamburger.addEventListener('click', function () {
+      var open = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        drawer.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ── Block past dates ── */
+    var dateInput = document.getElementById('bf-date');
+    if (dateInput) { dateInput.min = new Date().toISOString().split('T')[0]; }
+
+    /* ══════════════════════════════════════════
+       SUPABASE — paste your credentials below
+       ══════════════════════════════════════════ */
+    var SUPABASE_URL = 'PASTE_YOUR_URL_HERE';
+    var SUPABASE_KEY = 'PASTE_YOUR_KEY_HERE';
+    var dbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    /* ── Form submit ── */
+    document.getElementById('booking-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      var errorBox = document.getElementById('wf-error');
+      var btn      = document.getElementById('booking-btn');
+
+      /* Validate required fields */
+      var fname = document.getElementById('bf-fname').value.trim();
+      var lname = document.getElementById('bf-lname').value.trim();
+      var phone = document.getElementById('bf-phone').value.trim();
+      var style = document.getElementById('bf-style').value;
+
+      if (!fname || !lname || !phone || !style) {
+        errorBox.style.display = 'block';
+        return;
+      }
+      errorBox.style.display = 'none';
+
+      /* Disable button while saving */
+      btn.textContent = 'Sending...';
+      btn.disabled    = true;
+
+      /* Build the row to save */
+      var row = {
+        first_name:     fname,
+        last_name:      lname,
+        phone:          phone,
+        email:          document.getElementById('bf-email').value.trim() || null,
+        style:          style,
+        preferred_date: document.getElementById('bf-date').value  || null,
+        preferred_time: document.getElementById('bf-time').value  || null,
+        notes:          document.getElementById('bf-notes').value.trim() || null
+      };
+
+      /* Save to Supabase waitlist table */
+      var result = await dbClient.from('waitlist').insert([row]);
+
+      if (result.error) {
+        alert('Something went wrong. Please text Makiah directly at (615) 555-0123!');
+        btn.textContent = 'Request Appointment \u2192';
+        btn.disabled    = false;
+      } else {
+        /* Hide form, show success message */
+        document.getElementById('form-inner').style.display    = 'none';
+        document.getElementById('booking-success').style.display = 'block';
+      }
+    });
+  </script>
 
 </body>
 </html>
