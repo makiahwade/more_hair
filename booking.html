@@ -400,7 +400,7 @@
       };
 
       /* Save to Supabase waitlist table */
-      var result = await dbClient.from('waitlist').insert([row]);
+      var result = await dbClient.from('wishlist').insert([row]);
 
       if (result.error) {
         alert('Something went wrong. Please text Makiah directly at (615) 555-0123!');
